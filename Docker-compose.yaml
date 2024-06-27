@@ -1,0 +1,16 @@
+services:
+  rdb:
+    image: postgres:15.2
+    container_name: "rpa_cicd_db"
+    ports:
+      - "15333:5432"
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+
+  web:
+    build: .
+    container_name: "rpa_cicd_web"
+    ports:
+      - "8000:5000"
